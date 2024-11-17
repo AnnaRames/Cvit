@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка і оплата - Магазин квітів Цвіт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="Лаба.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXZFY92cbbB-DuzumXLURRgpPrWL-GgLaXcg&s" alt="Logo" class="logo-img"></a>
+            </div>
+            <!-- Menu -->
+            <nav class="menu-container">
+                <ul class="menu">
+                    <li><a href="flowers.html">Квіти</a></li>
+                    <li><a href="delivery.html">Доставка і оплата</a></li>
+                    <li><a href="#">Акційні</a></li>
+                    <li><a href="#">Відгуки</a></li>
+                    <li><a href="#">Додаткове</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Картка з доставкою -->
+<section class="cart">
+    <h1 class="cart-title">Ваш кошик</h1>
+    <div id="empty-cart-message">На жаль, Ви ще не обрали квітів - перейдіть до вкладки "Квіти"</div>
+    <div id="cart-items"></div>
+    <div id="cart-content" style="display: none;">
+        <div id="packaging-container">
+            <label for="packaging" id="packaging-label">Упакування:</label>
+            <select id="packaging">
+                <option value="0">Без упакування</option>
+                <option value="10">Просте упакування - 10 грн</option>
+                <option value="20">Середнє упакування - 20 грн</option>
+                <option value="30">Велике упакування - 30 грн</option>
+            </select>
+        </div>
+        <div id="total-price">Загальна сума: 0 грн</div>
+        <hr>
+    </div>
+</section>
+
+<!-- Інформація про клієнта -->
+<section class="customer-info">
+    <h2>Інформація про клієнта</h2>
+    <div id="customer-form">
+        <label for="first-name">Ім'я:</label>
+        <input type="text" id="first-name" pattern="[A-Za-zА-Яа-яЁёІіЇїЄє ]+" required title="Ім'я не повинно містити цифр.">
+        <label for="last-name">Прізвище:</label>
+        <input type="text" id="last-name" pattern="[A-Za-zА-Яа-яЁёІіЇїЄє ]+" required title="Прізвище не повинно містити цифр.">
+        <label for="street">Вулиця:</label>
+        <input type="text" id="street" pattern="[A-Za-zА-Яа-яЁёІіЇїЄє ]+" required title="Назва вулиці не повинна містити цифр.">
+        <label for="house-number">Номер будинку:</label>
+        <input type="number" id="house-number" required>
+        <label for="phone-number">Номер телефону:</label>
+        <input type="tel" id="phone-number" pattern="[0-9]{10}" required title="Номер телефону повинен містити лише цифри (10 цифр).">
+        <label for="wishes">Побажання:</label>
+        <textarea id="wishes"></textarea>
+        <button id="submit-order">Оформити замовлення</button>
+    </div>
+</section>
+
+<!-- Модальне вікно -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <p id="modal-message"></p>
+        <button class="close-btn" id="modal-close">Закрити</button>
+    </div>
+</div>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-location">м. Київ, вул. Квіткова, 15</p>
+            <p class="footer-contact">Телефон: +380 50 123 45 67</p>
+            <p class="footer-email">Електронна пошта: cvit@flowers.ua</p>
+            <p class="footer-instagram">Instagram: @cvit_flowers</p>
+            <p class="footer-hours">Графік роботи: Пн-Нд, 8:00-20:00</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartContent = document.getElementById('cart-content');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+    const modal = document.getElementById('modal');
+    const modalMessage = document.getElementById('modal-message');
+    const modalClose = document.getElementById('modal-close');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let totalPrice = 0;
+
+    // Перевірка стану кошика при завантаженні сторінки
+    if (cart.length === 0) {
+        emptyCartMessage.style.display = 'block';
+        cartContent.style.display = 'none';
+    } else {
+        emptyCartMessage.style.display = 'none';
+        cartContent.style.display = 'block';
+
+        cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'cart-item';
+            itemElement.innerHTML = `
+                <p>${item.flower} - ${item.price} грн</p>
+                <input type="number" min="1" value="${item.quantity || 1}" class="quantity" data-price="${item.price}">
+                <button class="remove">Видалити</button>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+
+            totalPrice += parseInt(item.price) * (item.quantity || 1);
+
+            itemElement.querySelector('.remove').addEventListener('click', () => {
+                cart = cart.filter(cartItem => cartItem.flower !== item.flower);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                itemElement.remove();
+                updateTotalPrice();
+                if (cart.length === 0) {
+                    emptyCartMessage.style.display = 'block';
+                    cartContent.style.display = 'none';
+                }
+            });
+
+            itemElement.querySelector('.quantity').addEventListener('change', (event) => {
+                const quantity = parseInt(event.target.value);
+                const price = parseInt(event.target.getAttribute('data-price'));
+                const itemTotal = price * quantity;
+
+                totalPrice += itemTotal - price * (item.quantity || 1);
+                item.quantity = quantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateTotalPrice();
+            });
+        });
+
+        document.getElementById('packaging').addEventListener('change', updateTotalPrice);
+    }
+
+    function updateTotalPrice() {
+        const packagingPrice = parseInt(document.getElementById('packaging').value);
+        const deliveryPrice = 50; // Ціна доставки
+        let itemsTotal = 0;
+
+        document.querySelectorAll('.quantity').forEach(input => {
+            const quantity = parseInt(input.value);
+            const price = parseInt(input.getAttribute('data-price'));
+            itemsTotal += quantity * price;
+        });
+
+        const total = itemsTotal + packagingPrice + deliveryPrice;
+        document.getElementById('total-price').textContent = `Загальна сума: ${total} грн`;
+    }
+
+    updateTotalPrice();
+
+    // Додати прослуховувач для кнопки "Оформити замовлення"
+    document.getElementById('submit-order').addEventListener('click', () => {
+        const firstName = document.getElementById('first-name').value;
+        const lastName = document.getElementById('last-name').value;
+        const street = document.getElementById('street').value;
+        const houseNumber = document.getElementById('house-number').value;
+        const phoneNumber = document.getElementById('phone-number').value;
+        const wishes = document.getElementById('wishes').value;
+
+        // Перевірка заповнення всіх полів
+        if (firstName && lastName && street && houseNumber && phoneNumber) {
+            if (/^[A-Za-zА-Яа-яЁёІіЇїЄє ]+$/.test(firstName) && /^[A-Za-zА-Яа-яЁёІіЇїЄє ]+$/.test(lastName) && /^[A-Za-zА-Яа-яЁёІіЇїЄє ]+$/.test(street) && /^[0-9]{10}$/.test(phoneNumber)) {
+                // Якщо всі поля заповнені правильно
+                modalMessage.textContent = "Ми уже працюємо над Вашим замовленням, очікуйте повідомлення від нас♥";
+                modal.style.display = 'flex';
+
+                // Очищення корзини
+                localStorage.removeItem('cart');
+                cartItemsContainer.innerHTML = '';
+                emptyCartMessage.style.display = 'block';
+                cartContent.style.display = 'none';
+            } else {
+                // Якщо є помилки у введених даних
+                modalMessage.textContent = "Упс, ми не можемо оформити Ваше замовлення. Перевірте правильність введених даних.";
+                modal.style.display = 'flex';
+            }
+        } else {
+            // Якщо не всі поля заповнені
+            modalMessage.textContent = "Упс, ми не можемо оформити Ваше замовлення. Переконайтесь, що всі поля заповнені.";
+            modal.style.display = 'flex';
+        }
+    });
+
+    // Закриття модального вікна
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Закриття модального вікна при кліку за його межами
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

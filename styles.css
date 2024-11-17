@@ -1,0 +1,419 @@
+/* Загальні стилі */
+body {
+    margin: 0;
+    font-family: 'Poiret One', sans-serif; /* Встановлення шрифту Poiret One */
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Шапка сайту */
+header {
+    background-color: #00274D; /* Темно-синій колір */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px; /* Збільшена висота шапки */
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+/* Стилі для модального вікна */
+.modal {
+    display: none; /* Приховано за замовчуванням */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Чорний колір з прозорістю */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    font-family: 'Poiret One', sans-serif; /* Встановлення шрифту Poiret One */
+    font-weight: bold;
+    color: rgba(0, 39, 77, 0.8); /* Колір тексту */
+    border-radius: 10px;
+}
+
+.close-btn {
+    background-color: #FF7F50; /* Колір кнопки */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poiret One', sans-serif; /* Встановлення шрифту Poiret One */
+}
+
+.close-btn:hover {
+    background-color: rgba(0, 39, 77, 0.8); /* Кольор при наведенні */
+}
+
+
+/* Логотип */
+.logo {
+    position: absolute;
+    left: 20px; /* Логотип у лівому кутку */
+}
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+/* Меню */
+.menu-container {
+    margin: 0 auto; /* Центрує меню всередині хедера */
+    text-align: center;
+    flex: 1;
+}
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Центрує вкладки меню по горизонталі */
+    padding: 0;
+    margin: 0;
+}
+.menu li {
+    margin: 0 20px; /* Збільшений відступ між вкладками */
+}
+.menu a {
+    text-decoration: none;
+    color: #ffffff; /* Білий колір тексту для контрасту з темно-синім фоном */
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.menu a:hover {
+    color: #FF7F50; /* Кораловий колір при наведенні */
+}
+
+/* Блок із фото квітів */
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.hero-image {
+    width: 100%;
+    display: block;
+}
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.hero-blur {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Ширина димки */
+    height: 100%; /* Висота димки */
+    background-color: rgba(0, 39, 77, 0.8); /* Насичена димка */
+    z-index: 1;
+    border-radius: 50%; /* Овальна форма */
+    filter: blur(10px); /* Легка димка */
+}
+.hero-title {
+    position: relative;
+    font-size: 72px; /* Розмір шрифту */
+    color: #ffffff; /* Білий колір тексту */
+    z-index: 2;
+    padding: 20px; /* Відступи */
+}
+/* Блок з переліком квітів */
+.flowers {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fdfdfd;
+}
+.flowers-title {
+    font-size: 56px; /* Вдвічі більший розмір */
+    margin-bottom: 30px;
+    color: #FF7F50; /* Кораловий колір */
+    text-align: center; /* Центрування тексту */
+    margin-top: 10px; /* Піднімаємо заголовок вище */
+}
+.flowers-subtitle {
+    font-size: 24px; /* Менший розмір шрифту */
+    color: rgba(0, 39, 77, 0.8); /* Колір тексту */
+    font-weight: bold; /* Жирний текст */
+    text-align: center; /* Центрування тексту */
+    margin-bottom: 30px; /* Відступ знизу */
+}
+.flowers-subtitle ol {
+    padding-left: 0; /* Вирівнювання списку */
+    list-style-position: inside; /* Нумерація всередині списку */
+}
+.flowers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 блоки на ширину сторінки */
+    gap: 20px;
+    max-width: 1200px; /* Обмежена ширина контейнера */
+    margin: 0 auto; /* Центрування контейнера */
+}
+.flower-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.flower-item p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: rgba(0, 39, 77, 0.8); /* Колір тексту */
+    font-weight: bold; /* Жирний текст */
+}
+
+.flower-item img {
+    width: 200px; 
+    height: 200px;
+    border-radius: 10px;
+}
+.flower-item button {
+    background-color: #FF7F50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poiret One', sans-serif; /* Встановлення шрифту Poiret One */
+    font-weight: bold;
+}
+
+.flower-item button:hover {
+    background-color:#00274D;
+}
+
+/* Блок про компанію */
+.about-us {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fdfdfd;
+}
+.about-title {
+    font-size: 108px; /* Втричі більший розмір */
+    color: #FF7F50; /* Кораловий колір */
+    margin-bottom: 20px;
+}
+.about-text {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(0, 39, 77, 0.8); /* Колір тексту */
+    font-weight: bold; /* Жирний текст */
+    text-align: center;
+}
+
+
+/* Блок із флористами */
+.florists {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 50px 20px;
+}
+.florists-title {
+    font-size: 56px; /* Вдвічі більший розмір */
+    margin-bottom: 30px;
+    color:#00274D;
+}
+.florist-profiles {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.florist {
+    text-align: center;
+}
+.florist-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.florist-name {
+    font-size: 20px;
+    font-weight: bold;
+    color:#FF7F50;
+    font-weight: bold;
+}
+.florist-info {
+    font-size: 16px;
+    color:#00274D;
+    font-weight: bold;
+
+}
+
+/* Завершальний блок */
+footer {
+    background-color:#00274D;
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+}
+.footer-content p { 
+    margin: 10px 0; 
+    font-size: 16px; color: #fff; /* Білий колір тексту */ 
+    text-decoration: none; /* Прибрати підкреслення */
+}
+.footer-content p { 
+    margin: 10px 0; 
+    font-size: 16px; 
+    color: #fff; /* Білий колір тексту */ 
+    text-decoration: none; /* Прибрати підкреслення */
+}
+
+/* Напис "Ваш кошик" */
+.cart-title {
+    text-align: center;
+    font-weight: bold;
+    color: #00274D;
+    font-size: 2em; /* Вдвічі більший розмір */
+}
+
+/* Оформлення квітів */
+.cart-item {
+    text-align: center;
+}
+.cart-item p {
+    font-weight: bold;
+    color: rgba(0, 39, 77, 0.8);
+}
+.quantity {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Poiret One', sans-serif;
+    color: #00274D;
+}
+
+/* Напис "Інформація про клієнта" */
+.customer-info h2 {
+    text-align: center;
+    font-weight: bold;
+    color:#00274D;
+    font-size: 2em; /* Вдвічі більший розмір */
+}
+
+/* Центрування та зменшення ширини полів */
+#customer-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#customer-form label {
+    font-weight: bold;
+    color: rgba(0, 39, 77, 0.8);
+    width: 40%; /* Вдвічі менша ширина */
+    margin-bottom: 10px;
+}
+#customer-form input,
+#customer-form textarea {
+    width: 40%; /* Вдвічі менша ширина */
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Poiret One', sans-serif;
+    color: #00274D;
+}
+
+/* Кнопка "Оформити замовлення" */
+#submit-order {
+    background-color: #FF7F50; /* Колір кнопки */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poiret One', sans-serif; /* Встановлення шрифту Poiret One */
+    font-weight: bold;
+    margin-top: 20px; /* Відступ зверху */
+    margin-bottom: 20px; /* Відступ знизу */
+}
+#submit-order:hover {
+    background-color: rgba(0, 39, 77, 0.8); /* Колір при наведенні */
+}
+
+/* Напис "Загальна сума" */
+#total-price {
+    text-align: center;
+    font-weight: bold;
+    color: #FF7F50;
+    font-size: 2em; /* Вдвічі більший розмір */
+}
+/* Центрування та стилізація упакування */
+#packaging-label {
+    text-align: center;
+    font-weight: bold;
+    color: rgba(0, 39, 77, 0.8);
+}
+#packaging-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#packaging {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Poiret One', sans-serif;
+    color: #00274D;
+}
+#empty-cart-message {
+    text-align: center;
+    font-size: 3em; /* Втричі більший розмір */
+    font-weight: bold;
+    color: #FF7F50;
+    display: none; /* Сховати за замовчуванням */
+}
+
+/* Стиль для модального вікна */ 
+.modal { 
+    display: none; /* Приховано за замовчуванням */ 
+    position: fixed; 
+    z-index: 1; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); /* Чорний колір з прозорістю */ 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+} 
+.modal-content { 
+    background-color: #fff; 
+    padding: 20px; 
+    border: 1px solid #888; 
+    width: 80%; max-width: 400px; 
+    text-align: center; font-family: 'Poiret One', sans-serif; /* Встановлення шрифту Poiret One */ 
+    font-weight: bold; 
+    color: rgba(0, 39, 77, 0.8); /* Колір тексту */ 
+    border-radius: 10px; 
+} 
+.close-btn { 
+    background-color: #FF7F50; /* Колір кнопки */ 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-family: 'Poiret One', sans-serif; /* Встановлення шрифту Poiret One */ 
+} 
+.close-btn:hover {
+     background-color: rgba(0, 39, 77, 0.8); /* Колір при наведенні */ 
+    }

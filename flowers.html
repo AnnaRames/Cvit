@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квіти - Магазин квітів Цвіт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка сайту -->
+    <header>
+        <div class="navbar">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="Лаба.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXZFY92cbbB-DuzumXLURRgpPrWL-GgLaXcg&s" alt="Logo" class="logo-img"></a>
+            </div>
+            <!-- Меню -->
+            <nav class="menu-container">
+                <ul class="menu">
+                    <li><a href="flowers.html">Квіти</a></li>
+                    <li><a href="delivery.html">Доставка і оплата</a></li>
+                    <li><a href="#">Акційні</a></li>
+                    <li><a href="#">Відгуки</a></li>
+                    <li><a href="#">Додаткове</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Блок для квітів -->
+    <section class="flowers">
+        <h1 class="flowers-title">Наші Квіти</h1>
+        <div class="flowers-subtitle">
+            <p>Для того, щоб сформувати букети потрібно:</p>
+            <ol>
+                <li>Обрати квіти</li>
+                <li>Додати до кошика</li>
+                <li>Перейти на вкладку "Доставка і оплата"</li>
+            </ol>
+        </div>
+        <div class="flowers-grid">
+            <div class="flower-item">
+                <img src="https://camellia-market.com.ua/image/cache/catalog/03.01/101www-auto_width_1333.jpg" alt="Троянда">
+                <p>Троянда</p>
+                <p>Ціна: 30 грн</p>
+                <button class="add-to-cart" data-flower="Троянда" data-price="30">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://bestflowers.com.ua/image/cache/800-800/data/demo/Lilii/lilii1_new.png" alt="Лілія">
+                <p>Лілія</p>
+                <p>Ціна: 40 грн</p>
+                <button class="add-to-cart" data-flower="Лілія" data-price="40">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://shop.camellia.ua/upload/kamelia_flora/photos/8e/be/1200x1200/ded1b7ef_613b42c25bd6f.JPG" alt="Орхідея">
+                <p>Орхідея</p>
+                <p>Ціна: 50 грн</p>
+                <button class="add-to-cart" data-flower="Орхідея" data-price="50">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://camellia-market.com.ua/image/cache/catalog/11.12.23/img_8744-auto_width_1333.jpg" alt="Тюльпан">
+                <p>Тюльпан</p>
+                <p>Ціна: 25 грн</p>
+                <button class="add-to-cart" data-flower="Тюльпан" data-price="25">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://buket-express.ua/image/cache/catalog/g1.jpg-1400x1400-479x471.jpg" alt="Гербера">
+                <p>Гербера</p>
+                <p>Ціна: 35 грн</p>
+                <button class="add-to-cart" data-flower="Гербера" data-price="35">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://camellia-market.com.ua/image/cache/catalog/amarilis_diantus/img_7267-auto_width_1333.jpg" alt="Гвоздика">
+                <p>Гвоздика</p>
+                <p>Ціна: 20 грн</p>
+                <button class="add-to-cart" data-flower="Гвоздика" data-price="20">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://static.lepestki.ua/filestorage/products/338/67480/main.jpg" alt="Півонія">
+                <p>Півонія</p>
+                <p>Ціна: 45 грн</p>
+                <button class="add-to-cart" data-flower="Півонія" data-price="45">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://kievflower.com.ua/published/publicdata/PENTAGON/attachments/SC/products_pictures/%D1%80%D0%B0%D0%B7%D0%BD%D0%BE%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B5%20%D0%B0%D1%81%D1%82%D1%80%D1%8B_enl.jpg" alt="Айстра">
+                <p>Айстра</p>
+                <p>Ціна: 15 грн</p>
+                <button class="add-to-cart" data-flower="Айстра" data-price="15">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://camellia-market.com.ua/image/cache/catalog/3.11/51hh-auto_width_1333.jpg" alt="Хризантема">
+                <p>Хризантема</p>
+                <p>Ціна: 55 грн</p>
+                <button class="add-to-cart" data-flower="Хризантема" data-price="55">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://bestflowers.com.ua/image/cache/800-800/data/iris/101_iris_new.png" alt="Ірис">
+                <p>Ірис</p>
+                <p>Ціна: 25 грн</p>
+                <button class="add-to-cart" data-flower="Ірис" data-price="25">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://kvitarnia.ua/image/cache/catalog/products/buket2/07-1-1000x1000.jpg" alt="Фрезія">
+                <p>Фрезія</p>
+                <p>Ціна: 30 грн</p>
+                <button class="add-to-cart" data-flower="Фрезія" data-price="30">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://yaskravaklumba.com.ua/image/cache/catalog/dekorativka/kamelija/general-coletti_2-500x500.jpg" alt="Камелія">
+                <p>Камелія</p>
+                <p>Ціна: 60 грн</p>
+                <button class="add-to-cart" data-flower="Камелія" data-price="60">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://dicentra.ua/assets/images/products/4129/a10f6133ccfa424d43fa1385e15503ae94753655.jpg" alt="Нарцис">
+                <p>Нарцис</p>
+                <p>Ціна: 20 грн</p>
+                <button class="add-to-cart" data-flower="Нарцис" data-price="20">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://camellia-market.com.ua/image/cache/catalog/12.09/img_5626%281%29-auto_width_1333.jpg" alt="Альстромерія">
+                <p>Альстромерія</p>
+                <p>Ціна: 50 грн</p>
+                <button class="add-to-cart" data-flower="Альстромерія" data-price="50">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://images.prom.ua/3184223876_w600_h600_3184223876.jpg" alt="Лаванда">
+                <p>Лаванда</p>
+                <p>Ціна: 35 грн</p>
+                <button class="add-to-cart" data-flower="Лаванда" data-price="35">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://cvety.kz/upload/resize_cache/iblock/990/13b478yyf9f8256hgdyqklyjud8ntkty/700_700_1/IMG_1885.jpeg" alt="Лантана">
+                <p>Лантана</p>
+                <p>Ціна: 40 грн</p>
+                <button class="add-to-cart" data-flower="Лантана" data-price="40">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://flowersdelux.com.ua/wp-content/uploads/2020/04/%D0%B1%D0%B5%D0%BB%D0%B0%D1%8F-%D1%8D%D1%83%D1%81%D1%82%D0%BE%D0%BC%D0%B0.jpg" alt="Еустома">
+                <p>Еустома</p>
+                <p>Ціна: 45 грн</p>
+                <button class="add-to-cart" data-flower="Еустома" data-price="45">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://camellia-market.com.ua/image/cache/catalog/koshik/101gggg-auto_width_1333.jpg" alt="Гіпсофіла">
+                <p>Гіпсофіла</p>
+                <p>Ціна: 45 грн</p>
+                <button class="add-to-cart" data-flower="Гіпсофіла" data-price="45">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://kievflower.com.ua/published/publicdata/PENTAGON/attachments/SC/products_pictures/0-02-05-ea5ffeab3252353f64eff398c8784ea21dbd6f202d4accda42c56d32a7fa8071_b2ba45c9eb1bf126_enl.jpg" alt="Статиця">
+                <p>Статиця</p>
+                <p>Ціна: 55 грн</p>
+                <button class="add-to-cart" data-flower="Статиця" data-price="55">Додати до кошика</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://flowersdelux.com.ua/wp-content/uploads/2019/05/147.jpg" alt="Гіацинт">
+                <p>Гіацинт</p>
+                <p>Ціна: 25 грн</p>
+                <button class="add-to-cart" data-flower="Гіацинт" data-price="25">Додати до кошика</button>
+            </div>
+        </div>
+    </section>
+<!-- Модальне вікно -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <p id="modal-text"></p>
+        <button class="close-btn" id="confirmModal">Ок</button>
+        <button class="close-btn" id="cancelModal">Відмінити</button>
+    </div>
+</div>
+
+    <!-- Завершальний блок -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-location">м. Київ, вул. Квіткова, 15</p>
+            <p class="footer-contact">Телефон: +380 50 123 45 67</p>
+            <p class="footer-email">Електронна пошта: cvit@flowers.ua</p>
+            <p class="footer-instagram">Instagram: @cvit_flowers</p>
+            <p class="footer-hours">Графік роботи: Пн-Нд, 8:00-20:00</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const flower = button.getAttribute('data-flower');
+        const price = button.getAttribute('data-price');
+        
+        // Показ модального вікна
+        const modal = document.getElementById('myModal');
+        const modalText = document.getElementById('modal-text');
+        modalText.textContent = `${flower} додано до кошика!`;
+        modal.style.display = 'flex';
+
+        // Підтвердження додавання до кошика
+        document.getElementById('confirmModal').onclick = () => {
+            // Додавання до локального сховища
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ flower, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            modal.style.display = 'none';
+        };
+
+        // Скасування додавання до кошика
+        document.getElementById('cancelModal').onclick = () => {
+            modal.style.display = 'none';
+        };
+    });
+});
+
+// Закриття модального вікна при кліку за його межами
+window.addEventListener('click', event => {
+    const modal = document.getElementById('myModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+    </script>
+</body>
+</html>
+
